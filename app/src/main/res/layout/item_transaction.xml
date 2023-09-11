@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- item_transaction.xml -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewReceiptId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Receipt ID: Placeholder"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textIsSelectable="true"/>
+
+    <TextView
+        android:id="@+id/textViewRRN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RRN: Placeholder"
+        android:textSize="14sp"
+        android:textIsSelectable="true"/>
+
+    <TextView
+        android:id="@+id/textViewAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Amount: Placeholder"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textViewCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Card Number: Placeholder"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textViewStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Status: Placeholder"
+        android:textSize="14sp" />
+
+</LinearLayout>

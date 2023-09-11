@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_autorize_transactions"
+        android:icon="@drawable/ic_autorize"
+        android:title="Autorizaciones"/>
+
+    <item
+        android:id="@+id/menu_search_transactions"
+        android:icon="@drawable/ic_search"
+        android:title="Buscar"/>
+    <item
+        android:id="@+id/menu_list_transactions"
+        android:icon="@drawable/ic_list_exit"
+        android:title="Lista"/>
+    <item
+        android:id="@+id/menu_remove_transactions"
+        android:icon="@drawable/ic_list_remove"
+        android:title="Anuladas"/>
+
+
+
+</menu>
