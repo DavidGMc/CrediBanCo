@@ -5,4 +5,6 @@
     <string name="show_toast_anulada">Transacción no encontrada o previamente Anulada</string>
     <string name="confirmacion_alert_trasacction">Confirmación</string>
     <string name="msg_dialog_anular_transaccion">¿Estás seguro de que deseas anular esta transacción?</string>
+    <string name="result_search">Resultado de Busqueda</string>
+    <string name="transaccion_denegada">Transaccion Denegada</string>
 </resources>

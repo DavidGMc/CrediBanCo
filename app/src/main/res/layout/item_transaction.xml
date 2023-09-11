@@ -1,49 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- item_transaction.xml -->
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp" >
 
-    <TextView
-        android:id="@+id/textViewReceiptId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Receipt ID: Placeholder"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textIsSelectable="true"/>
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.Material3.CardView.Filled"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textViewRRN"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="RRN: Placeholder"
-        android:textSize="14sp"
-        android:textIsSelectable="true"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textViewAmount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Amount: Placeholder"
-        android:textSize="14sp" />
 
-    <TextView
-        android:id="@+id/textViewCard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Card Number: Placeholder"
-        android:textSize="14sp" />
 
-    <TextView
-        android:id="@+id/textViewStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Status: Placeholder"
-        android:textSize="14sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-</LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvReceiptId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ReceipId"
+                    android:textIsSelectable="true"
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                <TextView
+                    android:id="@+id/tvRRN"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="rrn"
+                    android:textIsSelectable="true"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+                <TextView
+                    android:id="@+id/tvAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Amount"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?android:attr/textColorSecondary" />
+                <TextView
+                    android:id="@+id/tvCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="card"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?android:attr/textColorSecondary" />
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Status"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?android:attr/textColorSecondary"
+                    />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDetalles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mas Detalles" />
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

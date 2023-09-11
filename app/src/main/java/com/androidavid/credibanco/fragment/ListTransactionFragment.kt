@@ -19,6 +19,7 @@ class ListTransactionFragment : Fragment() {
 
     private lateinit var transactionDao: TransactionDao
     private lateinit var recyclerView: RecyclerView
+    private lateinit var listener:TransactionsAdapter.OnItemClickListener
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,6 +61,7 @@ class ListTransactionFragment : Fragment() {
             // Crear un adaptador y configurar el RecyclerView
             val adapter = TransactionsAdapter(mutableApprovedTransactions)
             recyclerView.adapter = adapter
+
 
 
 // Notifica al adaptador que los datos han cambiado

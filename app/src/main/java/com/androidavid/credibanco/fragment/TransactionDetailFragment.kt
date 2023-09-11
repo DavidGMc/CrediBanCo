@@ -71,7 +71,7 @@ class TransactionDetailFragment : Fragment() {
             val id= args.getLong("ID",)
             var ident:Long= id
 
-            tv_id.text= "$ident"
+            tv_id.text=  "$ident"
             tv_receiptId.text = "$receiptId"
             tv_rrn.text = "$rrn"
             tv_amount.text = "$amount"
@@ -82,6 +82,7 @@ class TransactionDetailFragment : Fragment() {
 
             // Configura otras vistas con los detalles de la transacción
         }
+
 
 
 

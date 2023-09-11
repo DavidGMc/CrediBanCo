@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_autorize_transactions"
-        android:icon="@drawable/ic_autorize"
+        android:icon="@drawable/ic_autorizacion"
         android:title="Autorizaciones"/>
 
     <item
@@ -12,7 +12,7 @@
     <item
         android:id="@+id/menu_list_transactions"
         android:icon="@drawable/ic_list_exit"
-        android:title="Lista"/>
+        android:title="Aprobadas"/>
     <item
         android:id="@+id/menu_remove_transactions"
         android:icon="@drawable/ic_list_remove"

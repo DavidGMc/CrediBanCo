@@ -1,5 +1,6 @@
 package com.androidavid.credibanco.fragment
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -34,7 +35,7 @@ class SearchTransactionsFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_search_transactions, container, false)
 
-        // Inicializa transactionDao aquí utilizando el contexto
+        // Inicializamos transactionDao
         val database = TransactionsDatabase.getInstance(requireContext())
         transactionDao = database.transactionDao()
 
@@ -54,8 +55,8 @@ class SearchTransactionsFragment : Fragment() {
                 // Realizar la busqueda de la transacción aprobada por número de recibo rrn
                 searchTransactionByReceipt(rrnNumber = rrnNumber)
 
-
             }
+            edt_rrn.setText("")
         }
     }
 
@@ -79,9 +80,6 @@ class SearchTransactionsFragment : Fragment() {
 
             // Muestra el mensaje en un Toast
             showToast(message)
-
-
-
             val bundle = Bundle()
             bundle.putLong("ID", transaction.id)
             bundle.putString("ReceiptID", transaction.receiptId)
@@ -90,12 +88,12 @@ class SearchTransactionsFragment : Fragment() {
             bundle.putString("CardNumber", transaction.card)
             bundle.putString("StatusCode", transaction.statusCode)
             bundle.putString("StatusDescription", transaction.statusDescription)
-// Agrega otros datos a bundle si es necesario
+
 
             val transactionDetailFragment = TransactionDetailFragment()
             transactionDetailFragment.arguments = bundle
 
-// Navega al fragmento de detalle de transacción
+            // Navegar al fragmento de detalle de transacción
             childFragmentManager.beginTransaction()
                 ?.replace(R.id.container_search, transactionDetailFragment)
                 ?.addToBackStack(null)
@@ -105,16 +103,30 @@ class SearchTransactionsFragment : Fragment() {
             // Devuelve la transacción encontrada
             return transaction
         } else {
-            // Si no se encuentra la transacción, muestra un mensaje de error en el Toast
-            showToast(getString(R.string.show_toast_anulada))
+            // Si no se encuentra la transacción, muestra un mensaje de error
+            searchDialog()
 
-            // Devuelve nulo
+
             return null
         }
+
     }
     private fun showToast(message: String) {
         val context = requireContext() // Obtén el contexto del Fragment
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    }
+    private fun searchDialog(){
+        val dialog = AlertDialog.Builder(requireContext())
+            .setTitle(getString(R.string.result_search))
+            .setMessage(getString(R.string.show_toast_anulada))
+            .setPositiveButton("Ok"){ view, _ ->
+                //
+
+                view.dismiss()
+            }
+            .setCancelable(false)
+            .create()
+        dialog.show()
     }
 
 }

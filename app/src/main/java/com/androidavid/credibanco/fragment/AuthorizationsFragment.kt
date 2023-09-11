@@ -63,11 +63,11 @@ class AuthorizationsFragment : Fragment() {
         progressbar.visibility =(View.INVISIBLE)
 
         btn_Autorize.setOnClickListener {
-            val id = edt_Id.text.toString()
-            val commerceCode = edt_commerceCode.text.toString()
-            val terminalCode = edt_TerminalCode.text.toString()
-            val amount = edt_Amount.text.toString()
-            val card = edt_Card.text.toString()
+            val id = edt_Id.text.toString().trim()
+            val commerceCode = edt_commerceCode.text.toString().trim()
+            val terminalCode = edt_TerminalCode.text.toString().trim()
+            val amount = edt_Amount.text.toString().trim()
+            val card = edt_Card.text.toString().trim()
 
 
             val credentials = "$commerceCode$terminalCode"
@@ -102,16 +102,15 @@ class AuthorizationsFragment : Fragment() {
                                 // Insertar la transacción en la base de datos Room
                                 insertTransaction(transaction)
                             }
-
                         }
-                        // Realizar cualquier acción adicional después de la autorización exitosa
+
                     } else {
                         Log.e(
                             "Response",
                             "Error en la respuesta del servicio: ${response.message()}"
                         )
-                        val messageNeg = "Autorizacion Denegada: ${response.message()}"
-                        showToast(messageNeg)
+
+                        errorDialog()
                     }
 
                 }
@@ -119,12 +118,19 @@ class AuthorizationsFragment : Fragment() {
 
                 }
             })
+            edt_Id.setText("")
+            edt_commerceCode.setText("")
+            edt_TerminalCode.setText("")
+            edt_Amount.setText("")
+            edt_Card.setText("")
 
         }
+
+
         return rootView
     }
 
-    // Function  insert  transaction in bd Room
+    // Esta funcion es para insertar en la bd
     private fun insertTransaction(transaction: Transaction) {
         lifecycleScope.launch {
             transactionDao.insertTransaction(transaction)
@@ -147,7 +153,20 @@ class AuthorizationsFragment : Fragment() {
             .setTitle(getString(R.string.informeDialog))
             .setMessage(getString(R.string.exit_dialog))
             .setPositiveButton(getString(R.string.aceptar)){ view, _ ->
-                //
+
+
+                view.dismiss()
+            }
+            .setCancelable(false)
+            .create()
+        dialog.show()
+    }
+    private fun errorDialog(){
+        val dialog = AlertDialog.Builder(requireContext())
+            .setTitle(getString(R.string.informeDialog))
+            .setMessage(getString(R.string.transaccion_denegada))
+            .setPositiveButton(getString(R.string.aceptar)){ view, _ ->
+
 
                 view.dismiss()
             }
